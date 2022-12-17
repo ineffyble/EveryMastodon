@@ -1,4 +1,4 @@
-import {readDirSync, writeFileSync} from 'fs';
+import {readdirSync, writeFileSync} from 'fs';
 
 const res = await fetch(`https://instances.social/api/1.0/instances/list?count=1800&include_down=false&include_closed=false&sort_by=active_users&sort_order=desc`, {
     headers: {
