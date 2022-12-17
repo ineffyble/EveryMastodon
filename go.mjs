@@ -13,6 +13,7 @@ const tweets = [];
 for (let instance of data.instances) {
     if (instance.info?.short_description) {
         if (!done.includes(instance.name)) {
+              const tweet = `https://mastoredirect.netlify.app/${instance.name} ${instance.info.short_description}`;
               await fetch(`https://maker.ifttt.com/trigger/make_tweet_happen/with/key/${process.env.IFTTT_API_KEY}`, {
                 method: 'POST',
                 headers: {
