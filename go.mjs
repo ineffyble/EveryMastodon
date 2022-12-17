@@ -6,7 +6,7 @@ const res = await fetch(`https://instances.social/api/1.0/instances/list?count=1
     }
 });
 
-const done = readDirSync('done');
+const done = readdirSync('done');
 
 const data = await res.json();
 const tweets = [];
