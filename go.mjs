@@ -15,6 +15,7 @@ for (let instance of data.instances) {
         try {
             const req = await fetch(`https://${instance.name}/api/v1/instance`);
             const info = req.json();
+            console.log(info);
             if (info.short_description) {
                 const tweet = `https://mastoredirect.netlify.app/${instance.name} ${info.short_description.replace(instance.name, '').replace(instance.name, '')}`;
                 await fetch(`https://maker.ifttt.com/trigger/make_tweet_happen/with/key/${process.env.IFTTT_API_KEY}`, {
