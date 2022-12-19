@@ -3,7 +3,7 @@ import { readdirSync, writeFileSync } from 'fs';
 const done = readdirSync('done');
 
 const joinres = await fetch('https://api.joinmastodon.org/servers');
-const joindata = await res.json();
+const joindata = await joinres.json();
 
 let tweeted = false;
 
