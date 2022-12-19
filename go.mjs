@@ -10,7 +10,7 @@ let tweeted = false;
 for (let instance of joindata) {
     if (!done.includes(instance.domain)) {
                 try {
-            const tweet = `https://mastoredirect.netlify.app/${instance.domain} ${info.description.replace(instance.domain, '').replace(instance.domain, '')}`;
+            const tweet = `https://mastoredirect.netlify.app/${instance.domain} ${instance.description.replace(instance.domain, '').replace(instance.domain, '')}`;
             await fetch(`https://maker.ifttt.com/trigger/make_tweet_happen/with/key/${process.env.IFTTT_API_KEY}`, {
                     method: 'POST',
                     headers: {
