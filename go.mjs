@@ -22,9 +22,10 @@ for (let instance of joindata) {
                 tweeted = true;
 
         } catch (err) {
-            console.log(`Error trying to tweet for ${instance.name}`);
+            console.log(err);
+            console.log(`Error trying to tweet for ${instance.domain}`);
         }
-        writeFileSync(`done/${instance.name}`, instance.name);
+        writeFileSync(`done/${instance.domain}`, instance.domain);
         break;
     }
 }
