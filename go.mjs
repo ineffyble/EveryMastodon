@@ -31,7 +31,7 @@ for (let instance of joindata) {
 }
 
 if (tweeted) {
-    process.env.exit();
+    process.exit();
 }
 
 
