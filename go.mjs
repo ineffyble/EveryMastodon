@@ -36,7 +36,7 @@ if (tweeted) {
 
 
 
-const res = await fetch(`https://instances.social/api/1.0/instances/list?count=18000&include_down=false&include_closed=false&sort_by=active_users&sort_order=desc`, {
+const res = await fetch(`https://instances.social/api/1.0/instances/list?count=10000&include_down=false&include_closed=false&sort_by=active_users&sort_order=desc`, {
     headers: {
         Authorization: `Bearer ${process.env.INSTANCES_SOCIAL_API_KEY}`
     }
