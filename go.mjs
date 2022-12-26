@@ -2,6 +2,13 @@ import { readdirSync, writeFileSync } from 'fs';
 
 const done = readdirSync('done');
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 const joinres = await fetch('https://api.joinmastodon.org/servers');
 const joindata = await joinres.json();
 
@@ -36,15 +43,17 @@ if (tweeted) {
 
 
 
-const res = await fetch(`https://instances.social/api/1.0/instances/list?count=10000&include_down=false&include_closed=false&sort_by=active_users&sort_order=desc`, {
+const res = await fetch(`https://instances.social/api/1.0/instances/list?count=10000&include_down=false&include_closed=true&sort_by=active_users&sort_order=desc`, {
     headers: {
         Authorization: `Bearer ${process.env.INSTANCES_SOCIAL_API_KEY}`
     }
 });
 
 const data = await res.json();
+const instances = data.instances;
+shuffleArray(instances);
 const tweets = [];
-for (let instance of data.instances) {
+for (let instance of instances) {
     if (!done.includes(instance.name)) {
         try {
             const req = await fetch(`https://${instance.name}/api/v1/instance`);
