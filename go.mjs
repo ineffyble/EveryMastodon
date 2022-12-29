@@ -51,7 +51,7 @@ const res = await fetch(`https://instances.social/api/1.0/instances/list?count=1
 
 const data = await res.json();
 const instances = data.instances;
-shuffleArray(instances);
+// shuffleArray(instances);
 const tweets = [];
 for (let instance of instances) {
     if (!done.includes(instance.name)) {
